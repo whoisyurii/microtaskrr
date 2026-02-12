@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>microtaskrr</title>
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/typing.css" />
+  <link rel="stylesheet" href="/styles/math.css" />
+  <link rel="stylesheet" href="/styles/snake.css" />
+  <link rel="stylesheet" href="/styles/reaction.css" />
+</head>
+<body>
+  <div id="titlebar" data-tauri-drag-region>
+    <span class="title" data-tauri-drag-region>microtaskrr</span>
+    <span class="game-label" id="game-label" data-tauri-drag-region></span>
+    <span class="close-hint" id="close-hint">Esc to close</span>
+  </div>
+
+  <div id="game-area">
+    <div id="idle-screen" class="game-container active">
+      <div class="idle-content">
+        <div class="idle-icon">⚡</div>
+        <p>Waiting for Claude to think...</p>
+      </div>
+    </div>
+
+    <div id="typing-game" class="game-container">
+      <div class="typing-words" id="typing-words"></div>
+      <input type="text" id="typing-input" class="typing-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <div class="typing-stats">
+        <span id="typing-wpm">0 WPM</span>
+        <span id="typing-accuracy">100%</span>
+      </div>
+    </div>
+
+    <div id="math-game" class="game-container">
+      <div class="math-streak" id="math-streak">Streak: 0</div>
+      <div class="math-problem" id="math-problem"></div>
+      <input type="text" id="math-input" class="math-input" autocomplete="off" inputmode="numeric" />
+      <div class="math-feedback" id="math-feedback"></div>
+      <div class="math-stats">
+        <span id="math-correct">0/0</span>
+        <span id="math-best-streak">Best: 0</span>
+      </div>
+    </div>
+
+    <div id="snake-game" class="game-container">
+      <canvas id="snake-canvas"></canvas>
+      <div class="snake-hud">
+        <span id="snake-score">Score: 0</span>
+        <span id="snake-high">Best: 0</span>
+      </div>
+      <div class="snake-overlay" id="snake-overlay">
+        <div class="snake-overlay-text">Game Over</div>
+      </div>
+    </div>
+
+    <div id="reaction-game" class="game-container">
+      <div class="reaction-zone" id="reaction-zone">
+        <div class="reaction-text" id="reaction-text">Press Space to start</div>
+        <div class="reaction-hint" id="reaction-hint">Press Space as fast as you can!</div>
+        <div class="reaction-time" id="reaction-time"></div>
+      </div>
+      <div class="reaction-stats">
+        <span id="reaction-best">Best: —</span>
+        <span id="reaction-avg">Avg: —</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="stats-bar">
+    <span id="stats-text"></span>
+  </div>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

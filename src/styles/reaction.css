@@ -1,0 +1,54 @@
+#reaction-game {
+  padding: 0;
+}
+
+.reaction-zone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s;
+  gap: 8px;
+}
+
+.reaction-zone.waiting {
+  background: #8b0000;
+}
+
+.reaction-zone.ready {
+  background: #006400;
+}
+
+.reaction-zone.result {
+  background: var(--bg-tertiary);
+}
+
+.reaction-zone.too-early {
+  background: #8b4500;
+}
+
+.reaction-text {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.reaction-hint {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.reaction-time {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+.reaction-stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+}

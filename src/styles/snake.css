@@ -1,0 +1,47 @@
+#snake-game {
+  position: relative;
+  align-items: center;
+}
+
+#snake-canvas {
+  display: block;
+}
+
+.snake-hud {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.snake-hud #snake-score {
+  color: var(--accent-green);
+}
+
+.snake-hud #snake-high {
+  color: var(--accent-yellow);
+}
+
+.snake-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 268px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 26, 46, 0.85);
+}
+
+.snake-overlay.visible {
+  display: flex;
+}
+
+.snake-overlay-text {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent);
+}

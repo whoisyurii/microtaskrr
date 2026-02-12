@@ -1,0 +1,47 @@
+#math-game {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.math-streak {
+  font-size: 14px;
+  color: var(--accent-yellow);
+  font-weight: 600;
+}
+
+.math-problem {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+}
+
+.math-input {
+  width: 160px;
+  text-align: center;
+  font-size: 24px;
+  padding: 10px;
+}
+
+.math-feedback {
+  height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.math-feedback.correct {
+  color: var(--accent-green);
+}
+
+.math-feedback.incorrect {
+  color: var(--accent);
+}
+
+.math-stats {
+  display: flex;
+  gap: 24px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
