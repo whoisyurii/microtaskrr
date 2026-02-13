@@ -45,14 +45,14 @@ jobs:
 
       - name: Package binary
         run: |
-          cp src-tauri/target/${{ matrix.target }}/release/microtask microtask-${{ matrix.target }}
-          chmod +x microtask-${{ matrix.target }}
+          cp src-tauri/target/${{ matrix.target }}/release/microtaskrr microtaskrr-${{ matrix.target }}
+          chmod +x microtaskrr-${{ matrix.target }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: microtask-${{ matrix.target }}
-          path: microtask-${{ matrix.target }}
+          name: microtaskrr-${{ matrix.target }}
+          path: microtaskrr-${{ matrix.target }}
 
   release:
     needs: build

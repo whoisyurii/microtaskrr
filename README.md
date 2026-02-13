@@ -36,7 +36,7 @@ More games coming — this project is actively expanding.
 ## Install (one command)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/whoisyurii/microtask/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/whoisyurii/microtaskrr/main/install.sh | bash
 ```
 
 This will:
@@ -60,7 +60,7 @@ You can **pause** it by choosing "Sleep for..." from the tray menu (30 min, 1 h,
 Requires [Rust](https://rustup.rs) and [Node.js](https://nodejs.org) 18+.
 
 ```bash
-git clone https://github.com/whoisyurii/microtask.git && cd microtask
+git clone https://github.com/whoisyurii/microtaskrr.git && cd microtask
 npm install
 npm run build
 cd src-tauri && cargo build --release && cd ..
@@ -135,7 +135,7 @@ Claude Code CLI                    microtaskrr (Tauri app)
 ## Uninstall
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/whoisyurii/microtask/main/uninstall.sh | bash
+curl -fsSL https://raw.githubusercontent.com/whoisyurii/microtaskrr/main/uninstall.sh | bash
 ```
 
 Or manually:

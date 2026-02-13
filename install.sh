@@ -2,9 +2,9 @@
 set -euo pipefail
 
 # microtaskrr installer
-# Usage: curl -fsSL https://raw.githubusercontent.com/YOURNAME/microtask/main/install.sh | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/whoisyurii/microtaskrr/main/install.sh | bash
 
-REPO="whoisyurii/microtask"
+REPO="whoisyurii/microtaskrr"
 INSTALL_DIR="$HOME/.local/bin"
 BINARY_NAME="microtaskrr"
 SETTINGS_FILE="$HOME/.claude/settings.json"
@@ -45,7 +45,7 @@ LATEST_URL=$(curl -fsSL "https://api.github.com/repos/$REPO/releases/latest" \
 if [ -z "$LATEST_URL" ]; then
   echo "  ✗ Could not find a release for $TARGET."
   echo "  → You can build from source instead:"
-  echo "    git clone https://github.com/$REPO && cd microtask"
+  echo "    git clone https://github.com/$REPO && cd microtaskrr"
   echo "    npm install && npx tauri build"
   exit 1
 fi
