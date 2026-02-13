@@ -140,6 +140,18 @@ Claude Code CLI                    microtaskrr (Tauri app)
 - Claude Code hooks trigger `show` on every prompt submission and context compaction
 - User dismisses with **Esc** when done (focus returns to terminal automatically)
 
+## 🗺️ Roadmap
+
+- More mini-games — actively expanding the game library
+- Linux and Windows support
+- Codex CLI integration (alongside Claude Code)
+
+If you're an early adopter on macOS, I'd love your help testing. Bug reports, edge cases, weird setups — anything you find helps. Open an [issue](https://github.com/whoisyurii/microtaskrr/issues) or reach out.
+
+## ⚠️ Known issues
+
+**Game flickering during Claude Code UI glitch** — Claude Code has a known terminal flickering bug that can cause hooks to fire rapidly. When this happens, microtaskrr will keep popping up new games in quick succession. This is a Claude Code issue, not a microtaskrr bug. If it happens, click the tray icon and choose **Quit**, or pick **Sleep for...** to pause it until the flickering stops.
+
 ## 🗑️ Uninstall
 
 If installed via Homebrew:
