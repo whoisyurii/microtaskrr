@@ -1,13 +1,16 @@
 <h1 align="center">
-  <img src="assets/icon.svg" width="28" height="28" alt="icon" />
-  <br/>
-  microtaskrr
+  <img src="assets/icon.svg" width="28" height="28" alt="icon" />&nbsp;microtaskrr
 </h1>
 <p align="center">
-  Mini-games that pop up while Claude Code thinks...
+  Mini-games that pop up while Claude Code thinks.
+</p>
+<p align="center">
+  Built with Tauri v2 · macOS only (for now)
 </p>
 
-Built with Tauri v2. macOS only (for now).
+Waiting 5–60 seconds for Claude Code to respond? Play a quick typing test, solve some math, or chase a snake — right from a lightweight menu-bar app that hooks into Claude Code and pops up a random game every time you send a prompt.
+
+No Dock icon. No window management. Just a tray icon that stays out of your way until it's game time.
 
 <p align="center">
   <img src="assets/example1.gif" width="49%" />
@@ -18,7 +21,7 @@ Built with Tauri v2. macOS only (for now).
   <img src="assets/example4.gif" width="49%" />
 </p>
 
-## Games
+## 🎮 Games
 
 | Game | What it does |
 |------|-------------|
@@ -33,7 +36,7 @@ A random game is picked each time (never the same one twice in a row). Stats per
 
 More games coming — this project is actively expanding.
 
-## Install
+## 📦 Install
 
 ### Homebrew (recommended)
 
@@ -54,13 +57,13 @@ curl -fsSL https://raw.githubusercontent.com/whoisyurii/microtaskrr/main/install
 
 Press **Esc** to dismiss and return to your terminal.
 
-## Status bar & no Dock
+## 🖥️ Status bar & no Dock
 
 The app does **not** appear in the macOS Dock. It lives in the **menu bar** (status bar) as a tray icon.
 
 You can **pause** it by choosing "Sleep for..." from the tray menu (30 min, 1 h, 2 h, 4 h, 8 h).
 
-## Build from source
+## 🔧 Build from source
 
 Requires [Rust](https://rustup.rs) and [Node.js](https://nodejs.org) 18+.
 
@@ -115,7 +118,7 @@ Start the background process:
 ~/.local/bin/microtaskrr &
 ```
 
-## How it works
+## ⚙️ How it works
 
 ```
 Claude Code CLI                    microtaskrr (Tauri app)
@@ -137,7 +140,7 @@ Claude Code CLI                    microtaskrr (Tauri app)
 - Claude Code hooks trigger `show` on every prompt submission and context compaction
 - User dismisses with **Esc** when done (focus returns to terminal automatically)
 
-## Uninstall
+## 🗑️ Uninstall
 
 If installed via Homebrew:
 
@@ -152,6 +155,6 @@ If installed via shell script:
 curl -fsSL https://raw.githubusercontent.com/whoisyurii/microtaskrr/main/uninstall.sh | bash
 ```
 
-## License
+## 📄 License
 
 MIT — see [LICENSE](LICENSE).
