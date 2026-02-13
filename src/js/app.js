@@ -41,7 +41,12 @@ function showGame(gameId) {
 
   document.getElementById("game-label").textContent = games[gameId].label;
   document.getElementById("close-hint").classList.add("visible");
-  document.getElementById("stats-text").textContent = stats.getSummary(gameId);
+}
+
+function setClaudeStatus(text, state) {
+  const el = document.getElementById("claude-status");
+  el.textContent = text;
+  el.className = "claude-status" + (state ? " " + state : "");
 }
 
 function hideAllGames() {
@@ -51,11 +56,12 @@ function hideAllGames() {
   document.getElementById("idle-screen").classList.add("active");
   document.getElementById("game-label").textContent = "";
   document.getElementById("close-hint").classList.remove("visible");
-  document.getElementById("stats-text").textContent = "";
+  setClaudeStatus("", "");
 }
 
 async function onShow() {
   await stats.load();
+  setClaudeStatus("Claude is thinking...", "thinking");
 
   const gameId = pickRandomGame();
   activeGameId = gameId;
@@ -82,6 +88,9 @@ async function onHide() {
 // Listen for Tauri events from the backend
 listen("microtaskrr-show", () => onShow());
 listen("microtaskrr-hide", () => onHide());
+listen("microtaskrr-done", () => {
+  setClaudeStatus("Done! Press Esc to get back", "done");
+});
 
 // Escape key hides the window from any context
 document.addEventListener("keydown", (e) => {
