@@ -33,17 +33,22 @@ A random game is picked each time (never the same one twice in a row). Stats per
 
 More games coming — this project is actively expanding.
 
-## Install (one command)
+## Install
+
+### Homebrew (recommended)
+
+```bash
+brew install whoisyurii/tap/microtaskrr
+brew services start microtaskrr
+```
+
+This installs the binary, configures Claude Code hooks, and starts the background service.
+
+### Shell script
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/whoisyurii/microtaskrr/main/install.sh | bash
 ```
-
-This will:
-- Download the latest binary for your Mac (Apple Silicon or Intel)
-- Install it to `~/.local/bin/microtaskrr`
-- Add the Claude Code hook to `~/.claude/settings.json`
-- Start the background process
 
 **That's it.** Open a new Claude Code session, send a prompt, and a game appears.
 
@@ -60,7 +65,7 @@ You can **pause** it by choosing "Sleep for..." from the tray menu (30 min, 1 h,
 Requires [Rust](https://rustup.rs) and [Node.js](https://nodejs.org) 18+.
 
 ```bash
-git clone https://github.com/whoisyurii/microtaskrr.git && cd microtask
+git clone https://github.com/whoisyurii/microtaskrr.git && cd microtaskrr
 npm install
 npm run build
 cd src-tauri && cargo build --release && cd ..
@@ -134,16 +139,17 @@ Claude Code CLI                    microtaskrr (Tauri app)
 
 ## Uninstall
 
+If installed via Homebrew:
+
 ```bash
-curl -fsSL https://raw.githubusercontent.com/whoisyurii/microtaskrr/main/uninstall.sh | bash
+brew services stop microtaskrr
+brew uninstall microtaskrr
 ```
 
-Or manually:
+If installed via shell script:
 
 ```bash
-pkill -f microtaskrr
-rm ~/.local/bin/microtaskrr
-# Remove the UserPromptSubmit and PreCompact hooks from ~/.claude/settings.json
+curl -fsSL https://raw.githubusercontent.com/whoisyurii/microtaskrr/main/uninstall.sh | bash
 ```
 
 ## License
