@@ -11,6 +11,17 @@
         ]
       }
     ],
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.local/bin/microtaskrr show &"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "matcher": "",

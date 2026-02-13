@@ -6,6 +6,8 @@ import { TypingGame } from "./games/typing.js";
 import { MathGame } from "./games/math.js";
 import { SnakeGame } from "./games/snake.js";
 import { ReactionGame } from "./games/reaction.js";
+import { MemoryGame } from "./games/memory.js";
+import { StroopGame } from "./games/stroop.js";
 
 const appWindow = getCurrentWindow();
 
@@ -14,6 +16,8 @@ const games = {
   math: { instance: new MathGame(), label: "Math" },
   snake: { instance: new SnakeGame(), label: "Snake" },
   reaction: { instance: new ReactionGame(), label: "Reaction" },
+  memory: { instance: new MemoryGame(), label: "Memory" },
+  stroop: { instance: new StroopGame(), label: "Stroop Test" },
 };
 
 const gameIds = Object.keys(games);

@@ -1,0 +1,68 @@
+#memory-game {
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.memory-status {
+  font-size: 16px;
+  font-weight: bold;
+  height: 24px;
+  color: var(--text-primary);
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: 92px 92px 92px;
+  grid-template-rows: 52px 52px 52px;
+  grid-template-areas:
+    ".    up    ."
+    "left .     right"
+    ".    down  .";
+  gap: 4px;
+}
+
+.memory-tile {
+  width: 92px;
+  height: 52px;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: background 0.1s, border-color 0.1s, box-shadow 0.1s;
+}
+
+.memory-tile[data-dir="up"]    { grid-area: up; }
+.memory-tile[data-dir="down"]  { grid-area: down; }
+.memory-tile[data-dir="left"]  { grid-area: left; }
+.memory-tile[data-dir="right"] { grid-area: right; }
+
+.memory-tile.showing {
+  background: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+  box-shadow: 0 0 16px rgba(245, 197, 66, 0.5);
+  color: #1a1a2e;
+}
+
+.memory-tile.correct {
+  background: var(--accent-green);
+  border-color: var(--accent-green);
+  color: #1a1a2e;
+}
+
+.memory-tile.wrong {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.memory-stats {
+  display: flex;
+  gap: 24px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}

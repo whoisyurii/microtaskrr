@@ -7,6 +7,8 @@ class StatsManager {
       math: { totalProblems: 0, correct: 0, bestStreak: 0 },
       snake: { gamesPlayed: 0, highScore: 0 },
       reaction: { attempts: 0, bestMs: null, avgMs: null },
+      memory: { gamesPlayed: 0, bestLevel: 0, avgLevel: 0 },
+      stroop: { totalRounds: 0, correct: 0, bestStreak: 0 },
     };
     this.loaded = false;
   }
@@ -66,6 +68,22 @@ class StatsManager {
               : Math.round((s.avgMs * (s.attempts - 1) + result.ms) / s.attempts);
         }
         break;
+      case "memory":
+        if (result.bestLevel > 0) {
+          s.gamesPlayed++;
+          if (result.bestLevel > s.bestLevel) s.bestLevel = result.bestLevel;
+          s.avgLevel = Math.round(
+            (s.avgLevel * (s.gamesPlayed - 1) + result.bestLevel) / s.gamesPlayed
+          );
+        }
+        break;
+      case "stroop":
+        if (result.total > 0) {
+          s.totalRounds += result.total;
+          s.correct += result.correct;
+          if (result.streak > s.bestStreak) s.bestStreak = result.streak;
+        }
+        break;
     }
   }
 
@@ -80,6 +98,10 @@ class StatsManager {
         return `High score: ${s.highScore} | Games: ${s.gamesPlayed}`;
       case "reaction":
         return `Best: ${s.bestMs ?? "—"}ms | Avg: ${s.avgMs ?? "—"}ms | Tries: ${s.attempts}`;
+      case "memory":
+        return `Best: Lvl ${s.bestLevel} | Avg: Lvl ${s.avgLevel} | Games: ${s.gamesPlayed}`;
+      case "stroop":
+        return `Correct: ${s.correct}/${s.totalRounds} | Best streak: ${s.bestStreak}`;
       default:
         return "";
     }

@@ -33,16 +33,16 @@ with open(settings_path, "r") as f:
 
 hooks = settings.get("hooks", {})
 
-# Remove UserPromptSubmit entries that reference microtaskrr
-usp = hooks.get("UserPromptSubmit", [])
-hooks["UserPromptSubmit"] = [
-    entry for entry in usp
-    if not any(bin_path in h.get("command", "") for h in entry.get("hooks", []))
-]
+# Remove entries that reference microtaskrr from all hook events
+for event in ["UserPromptSubmit", "PreCompact", "Stop"]:
+    entries = hooks.get(event, [])
+    hooks[event] = [
+        entry for entry in entries
+        if not any(bin_path in h.get("command", "") for h in entry.get("hooks", []))
+    ]
+    if not hooks[event]:
+        del hooks[event]
 
-# Clean up empty arrays
-if not hooks["UserPromptSubmit"]:
-    del hooks["UserPromptSubmit"]
 if not hooks:
     del settings["hooks"]
 

@@ -4,6 +4,11 @@ Mini-games that pop up while Claude Code thinks. Typing tests, math problems, sn
 
 Built with Tauri v2. macOS only (for now).
 
+![example1](assets/example1.gif)
+![example2](assets/example2.gif)
+![example3](assets/example3.gif)
+![example4](assets/example4.gif)
+
 ## Install (one command)
 
 ```bash

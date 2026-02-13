@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/styles/math.css" />
   <link rel="stylesheet" href="/styles/snake.css" />
   <link rel="stylesheet" href="/styles/reaction.css" />
+  <link rel="stylesheet" href="/styles/memory.css" />
+  <link rel="stylesheet" href="/styles/stroop.css" />
 </head>
 <body>
   <div id="titlebar" data-tauri-drag-region>
@@ -65,6 +67,36 @@
       <div class="reaction-stats">
         <span id="reaction-best">Best: —</span>
         <span id="reaction-avg">Avg: —</span>
+      </div>
+    </div>
+
+    <div id="memory-game" class="game-container">
+      <div class="memory-status" id="memory-status"></div>
+      <div class="memory-grid">
+        <div class="memory-tile" data-dir="up" id="memory-up">&#x25B2;</div>
+        <div class="memory-tile" data-dir="left" id="memory-left">&#x25C0;</div>
+        <div class="memory-tile" data-dir="right" id="memory-right">&#x25B6;</div>
+        <div class="memory-tile" data-dir="down" id="memory-down">&#x25BC;</div>
+      </div>
+      <div class="memory-stats">
+        <span id="memory-level">Level: 0</span>
+        <span id="memory-best-level">Best: 0</span>
+      </div>
+    </div>
+
+    <div id="stroop-game" class="game-container">
+      <div class="stroop-streak" id="stroop-streak">Streak: 0</div>
+      <div class="stroop-word" id="stroop-word"></div>
+      <div class="stroop-feedback" id="stroop-feedback"></div>
+      <div class="stroop-keys">
+        <span>R=Red</span>
+        <span>B=Blue</span>
+        <span>G=Green</span>
+        <span>Y=Yellow</span>
+      </div>
+      <div class="stroop-stats">
+        <span id="stroop-correct">0/0</span>
+        <span id="stroop-total">Best: 0</span>
       </div>
     </div>
   </div>

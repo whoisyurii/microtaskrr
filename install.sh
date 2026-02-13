@@ -92,17 +92,18 @@ if not isinstance(settings, dict):
 # Ensure hooks structure exists
 hooks = settings.setdefault("hooks", {})
 
-# Add UserPromptSubmit hook if not already present
-usp = hooks.setdefault("UserPromptSubmit", [])
-already_has = any(
-    any(h.get("command", "").startswith(bin_path) for h in entry.get("hooks", []))
-    for entry in usp
-)
-if not already_has:
-    usp.append({
-        "matcher": "",
-        "hooks": [{"type": "command", "command": hook_cmd}]
-    })
+# Add hooks for UserPromptSubmit and PreCompact if not already present
+for event in ["UserPromptSubmit", "PreCompact"]:
+    entries = hooks.setdefault(event, [])
+    already_has = any(
+        any(h.get("command", "").startswith(bin_path) for h in entry.get("hooks", []))
+        for entry in entries
+    )
+    if not already_has:
+        entries.append({
+            "matcher": "",
+            "hooks": [{"type": "command", "command": hook_cmd}]
+        })
 
 with open(settings_path, "w") as f:
     json.dump(settings, f, indent=2)
