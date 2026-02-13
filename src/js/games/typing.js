@@ -79,7 +79,7 @@ export class TypingGame {
         `<div class="typing-done">` +
         `<span class="done-wpm">${wpm} WPM</span>` +
         `<span class="done-acc">${acc}% accuracy</span>` +
-        `<span class="done-hint">Space for next sentence</span>` +
+        `<span class="done-hint">Space or Enter for next sentence</span>` +
         `</div>`;
       return;
     }
@@ -104,10 +104,11 @@ export class TypingGame {
     }
   }
 
-  // Fires on document — catches Space for next sentence when input is disabled
+  // Fires on document — catches Space/Enter for next sentence when input is disabled
   onDocKeydown(e) {
-    if (this.done && e.key === " ") {
+    if (this.done && (e.key === " " || e.key === "Enter")) {
       e.preventDefault();
+      if (this.doneAt && Date.now() - this.doneAt < 100) return;
       this.generateSentence();
     }
   }
@@ -134,6 +135,7 @@ export class TypingGame {
 
     if (this.currentIndex >= this.words.length) {
       this.done = true;
+      this.doneAt = Date.now();
       this.endTime = Date.now();
       this.inputEl.disabled = true;
     }
