@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <!-- macOS squircle clip path -->
+    <clipPath id="squircle">
+      <path d="
+        M256,16
+        C384,16 496,16 496,16
+        C496,16 496,128 496,256
+        C496,384 496,496 496,496
+        C496,496 384,496 256,496
+        C128,496 16,496 16,496
+        C16,496 16,384 16,256
+        C16,128 16,16 16,16
+        C16,16 128,16 256,16Z
+      " />
+    </clipPath>
+    <!-- Proper macOS continuous-curvature squircle -->
+    <path id="squircle-path" d="
+      M256,10
+      C374,10 420,10 450,40
+      C480,70 502,128 502,256
+      C502,384 480,442 450,472
+      C420,502 374,502 256,502
+      C138,502 92,502 62,472
+      C32,442 10,384 10,256
+      C10,128 32,70 62,40
+      C92,10 138,10 256,10Z
+    " />
+
+    <!-- Dark background gradient -->
+    <radialGradient id="bg" cx="38%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#1a1a24"/>
+      <stop offset="100%" stop-color="#0c0c14"/>
+    </radialGradient>
+
+    <!-- Border highlight gradient (top-left light, bottom-right dark) -->
+    <linearGradient id="border-glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.28)"/>
+      <stop offset="50%" stop-color="rgba(255,255,255,0.08)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.02)"/>
+    </linearGradient>
+
+    <!-- Inner subtle light -->
+    <radialGradient id="inner-light" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.06)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+
+    <!-- Bolt gradient -->
+    <linearGradient id="bolt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8607a"/>
+      <stop offset="100%" stop-color="#d83055"/>
+    </linearGradient>
+
+    <!-- Bolt glow -->
+    <filter id="bolt-glow">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer border glow (slightly larger squircle) -->
+  <path d="
+    M256,6
+    C376,6 424,6 455,37
+    C486,68 506,128 506,256
+    C506,384 486,444 455,475
+    C424,506 376,506 256,506
+    C136,506 88,506 57,475
+    C26,444 6,384 6,256
+    C6,128 26,68 57,37
+    C88,6 136,6 256,6Z
+  " fill="url(#border-glow)"/>
+
+  <!-- Main background -->
+  <path d="
+    M256,10
+    C374,10 420,10 450,40
+    C480,70 502,128 502,256
+    C502,384 480,442 450,472
+    C420,502 374,502 256,502
+    C138,502 92,502 62,472
+    C32,442 10,384 10,256
+    C10,128 32,70 62,40
+    C92,10 138,10 256,10Z
+  " fill="url(#bg)"/>
+
+  <!-- Inner ambient light overlay -->
+  <path d="
+    M256,10
+    C374,10 420,10 450,40
+    C480,70 502,128 502,256
+    C502,384 480,442 450,472
+    C420,502 374,502 256,502
+    C138,502 92,502 62,472
+    C32,442 10,384 10,256
+    C10,128 32,70 62,40
+    C92,10 138,10 256,10Z
+  " fill="url(#inner-light)"/>
+
+  <!-- Lightning bolt -->
+  <polygon
+    points="290,60 163,258 247,258 204,452 349,218 265,218"
+    fill="url(#bolt)"
+    filter="url(#bolt-glow)"
+  />
+</svg>
